@@ -1,0 +1,32 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+
+#contenedor{
+    display: flex;
+    width: 800px;
+    margin:auto;
+    flex-direction: row;
+    border:1px dashed salmon;
+}
+
+.card{
+    width: 25%;
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.titulo,.descripcion,button{
+    width:100%
+}
+
+a{
+margin:auto;
+display: inline-block;
+border:1px dashed salmon;
+}
