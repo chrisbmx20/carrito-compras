@@ -43,3 +43,30 @@ header{
     justify-content: flex-end;
     padding: 10px 20px;
 }
+
+.cart-items{
+    padding:20px;
+
+}
+
+.close-btn{
+    border: 1px dashed salmon;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: red;
+    color:#ffffff;
+}
+.item-carrito{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    border:1px dashed salmon;
+    align-items: center;
+    width: 50%;
+    margin: auto;
+}
+
+.item-carrito h2{
+    width: 80%;
+}

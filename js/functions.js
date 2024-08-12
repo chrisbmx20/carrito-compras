@@ -62,7 +62,7 @@ let productos = [
         card.appendChild(button);
 
 
-        button.addEventListener("click",manejadorEvento,{once:true});
+        button.addEventListener("click",manejadorEvento);
         
        if( contenedor){
         contenedor.appendChild(card);
@@ -124,13 +124,45 @@ function mostrarCarrito(){
 
     productosCarrito.forEach(producto => {
         const con = document.createElement('div');
+              con.className = "item-carrito";
+
         const tit = document.createElement('h2');
+        const delBtn = document.createElement('button')
+              delBtn.textContent = "X";
+              delBtn.className = "close-btn";
+
+              delBtn.addEventListener("click", eliminarItemCarrito)
+        con.id = producto.id;
         tit.textContent = producto.titulo;
         con.appendChild(tit);
+        con.append(delBtn)
         itemList.appendChild(con);
+        
     })
+}
+
+function eliminarItemCarrito(e){
+      const productID = parseInt(e.target.parentElement.id);
+      const producto = getProductById(productID);
+      productosCarrito =  eliminarElemento(productosCarrito,producto); 
+      
+      localStorage.setItem("carrito", JSON.stringify(productosCarrito));
+      itemList.removeChild(e.target.parentElement);
+
+      actualizar();
 }
 
 function getCartItems(){
     return JSON.parse(localStorage.getItem("carrito")) || [];
+}
+
+
+function eliminarElemento(array, elementoEliminar) {
+  let newArr = [];
+
+  array.forEach(element => {
+      element.id === elementoEliminar.id ? console.log("") : newArr.push(element);
+  });
+
+  return newArr;
 }
