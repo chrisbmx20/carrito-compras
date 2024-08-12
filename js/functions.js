@@ -33,6 +33,7 @@ let productos = [
 
   const contenedor = document.getElementById('contenedor'); 
 
+  actualizar()
   mostrarProductos();
 
   function mostrarProductos(){
@@ -82,6 +83,7 @@ let productos = [
   }
 
   function actualizar(){
+    productosCarrito = getCartItems()
     contador.textContent = productosCarrito.length;
   }
 
